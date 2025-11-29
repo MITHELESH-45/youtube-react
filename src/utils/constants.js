@@ -1,4 +1,5 @@
 
 
-const Youtube_API_KEY="AIzaSyBFgzIWjHuHD7U1as_0wZtVJGmETwjCH2A";
-export const Youtube_video_url="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key="+Youtube_API_KEY;
+const Youtube_API_KEY=import.meta.env.VITE_YOUTUBE_API_KEY;
+
+export const Youtube_video_url="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key="+Youtube_API_KEY;
