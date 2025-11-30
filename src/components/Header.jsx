@@ -1,13 +1,52 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import menu from '../utils/images/hamburger_icon.svg.png'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { toggleSideBar } from '../utils/store/appSlice';
+import { youtube_search_api } from '../utils/constants';
+import { cacheResults } from '../utils/store/searchSlice';
 const Header = () => {
   
+  const [search,setSerach]=useState("");
+  const [suggestions,setSuggestions]=useState([]);
+  const [showSuggestions,setShowSuggestions]=useState(false);
+  
+  const searchCache=useSelector(store=>store.search);
   const dispatch=useDispatch();
   const handleSideBar=()=>{
      dispatch(toggleSideBar());
   }
+  
+  const getSearchSuggestons=async(normalized)=>{
+
+    const data=await fetch(youtube_search_api+normalized);
+    const json=await data.json();
+    setSuggestions(json[1]);
+    dispatch(cacheResults({
+      [normalized]:json[1],
+    }))
+
+  }
+
+useEffect(() => {
+  const normalized = search.trim().toLowerCase();
+
+  if (!normalized) {
+    setSuggestions([]);
+    return;
+  }
+
+  const timer = setTimeout(() => {
+    if (searchCache[normalized]) {
+      setSuggestions(searchCache[normalized]);
+    } else {
+      getSearchSuggestons(normalized);
+    }
+  }, 200);
+
+  return () => clearTimeout(timer);
+}, [search]);
+
+
   return (
     <div className='p-2 m-2  grid grid-cols-12 shadow-lg'>
 
@@ -26,14 +65,41 @@ const Header = () => {
         </div>
 
         <div className='col-span-8 flex items-center justify-center'>
+          <div className='relative'>
+          <div >
              <input 
               className='border border-black p-2 w-140 rounded-l-full'
-              placeholder='Search'/>
+              placeholder='Search'
+              value={search}
+              onChange={(e)=>setSerach(e.target.value)}
+              onFocus={()=>setShowSuggestions(true)}
+              onBlur={()=>setShowSuggestions(false)}  
+              
+              />
 
              <button
               className='rounded-r-full bg-gray-200 px-2 py-2 border border-black '
               >search</button>
+           </div>
+           {showSuggestions && suggestions.length>0 &&(
+           <div className='absolute bg-white px-2 py-2  w-[35rem] border border-gray-300 shadow-lg rounded-lg'>
+             <ul>
+               {
+                
+          
+                  suggestions.map((s)=>
+                  <li key={s} 
+                  onMouseDown={() => setSerach(s)}
+                  className='py-2 p-1 shadow-b-sm hover:bg-gray-100'>{s}</li>)
+                
+                } 
+                
+                
+             </ul>
+           </div>
+           )}
 
+        </div>
         </div>
 
         <div className='col-span-2 flex justify-end'>

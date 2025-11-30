@@ -10,7 +10,7 @@ const VideoContainer = () => {
   const getYoutubeVideos=async()=>{
     const data=await fetch(Youtube_video_url);
     const json=await data.json();
-    console.log(json.items);
+    
     setVideoes(json.items);
   }
 
@@ -23,7 +23,7 @@ const VideoContainer = () => {
        {videos.length > 0 &&
 
               videos.map((video)=>(
-                   <Link to={"/watch?v="+video.id}><MovieCard key={video.id} info={video} /></Link>
+                   <Link  key={video.id} to={"/watch?v="+video.id}><MovieCard  info={video} /></Link>
               ))
        }
     </div>
