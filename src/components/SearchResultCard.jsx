@@ -1,14 +1,14 @@
 import { formatViews, timeAgo } from "../utils/helper";
 
 const SearchResultCard = ({ info}) => {
-  console.log(info);
+  
   const { snippet,channelLogo,statistics } = info;
   const { title, thumbnails, channelTitle, description,publishedAt } = snippet;
   const time=timeAgo(publishedAt);
-  
-  const viewsOrginal=statistics.viewCount;
+  console.log(statistics);
+  const viewsOrginal=statistics?.viewCount;
 
-  const views=formatViews(viewsOrginal);
+  const views=viewsOrginal?formatViews(viewsOrginal):0;
   
   return (
     <div className="flex my-4 p-3  cursor-pointer shadow-lg">

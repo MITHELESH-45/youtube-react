@@ -4,6 +4,7 @@ import VideoContainer from './VideoContainer'
 import { useDispatch } from 'react-redux'
 import { addpopularMovies } from '../utils/store/VideSlice'
 import { Youtube_video_url } from '../utils/constants'
+import { openSideBar } from '../utils/store/appSlice'
 
 const MainContainer = () => {
 
@@ -19,7 +20,8 @@ const MainContainer = () => {
   }
 
   useEffect(()=>{
-     getYoutubeVideos();
+     
+     dispatch(openSideBar())
   },[])
   return (
     <div>

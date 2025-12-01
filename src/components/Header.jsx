@@ -61,6 +61,7 @@ useEffect(() => {
              src={menu}/>
 
             <img
+            onClick={()=>navigate("/")}
             className='h-10 mx-2'
             alt='logo'
             src='https://imgs.search.brave.com/O021aWB6pWnHLM_a-PdtBiPttnBQJnDDZXaaWYeEH50/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzYwL2E2/L2I5LzYwYTZiOTY0/ZWMzZWJhOGRmNjc5/MDBkMTNjODkyNDk2/LmpwZw'

@@ -12,9 +12,12 @@ const appSlice=createSlice({
         },
         closeSideBar:(state)=>{
             state.isSideBar=false;
+        },
+        openSideBar:(state)=>{
+            state.isSideBar=true;
         }
     }
 });
 
-export const{toggleSideBar,closeSideBar}=appSlice.actions
+export const{toggleSideBar,closeSideBar,openSideBar}=appSlice.actions
 export default appSlice.reducer;
