@@ -51,7 +51,7 @@ useEffect(() => {
 
 
   return (
-    <div className='p-2 m-2  grid grid-cols-12 shadow-lg'>
+    <div className='p-4  grid grid-cols-12 shadow-lg'>
 
         <div className='flex col-span-2  items-center'>
             <img

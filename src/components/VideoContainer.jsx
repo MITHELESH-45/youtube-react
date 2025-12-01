@@ -2,21 +2,11 @@ import React, { useEffect,useState } from 'react'
 import { Youtube_video_url } from '../utils/constants'
 import MovieCard from './MovieCard';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const VideoContainer = () => {
    
-  const [videos,setVideoes]=useState([]);
-
-  const getYoutubeVideos=async()=>{
-    const data=await fetch(Youtube_video_url);
-    const json=await data.json();
-    
-    setVideoes(json.items);
-  }
-
-  useEffect(()=>{
-     getYoutubeVideos();
-  },[])
+  const videos=useSelector(store=>store.videos.popularVideos)
 
   return (
     <div className='flex flex-wrap'>

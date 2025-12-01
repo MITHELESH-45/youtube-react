@@ -74,3 +74,31 @@ export function timeAgo(isoString) {
   return `${years} year${years > 1 ? "s" : ""} ago`;
 }
 
+
+export function formatViews(views) {
+  if (views == null) return "0";
+
+  const num = Number(views);
+
+  if (num < 1_000) {
+    return `${num}`;
+  }
+
+  if (num < 1_000_000) {
+    const value = num / 1_000;
+    return value >= 100
+      ? `${Math.floor(value)}K`
+      : `${value.toFixed(1).replace(/\.0$/, "")}K`;
+  }
+
+  if (num < 1_000_000_000) {
+    const value = num / 1_000_000;
+    return value >= 100
+      ? `${Math.floor(value)}M`
+      : `${value.toFixed(1).replace(/\.0$/, "")}M`;
+  }
+
+  const value = num / 1_000_000_000;
+  return `${value.toFixed(1).replace(/\.0$/, "")}B`;
+}
+
