@@ -4,11 +4,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toggleSideBar } from '../utils/store/appSlice';
 import { youtube_search_api } from '../utils/constants';
 import { cacheResults } from '../utils/store/searchSlice';
+import { useNavigate } from "react-router-dom";
+
 const Header = () => {
   
   const [search,setSerach]=useState("");
   const [suggestions,setSuggestions]=useState([]);
   const [showSuggestions,setShowSuggestions]=useState(false);
+  const navigate=useNavigate();
   
   const searchCache=useSelector(store=>store.search);
   const dispatch=useDispatch();
@@ -25,7 +28,7 @@ const Header = () => {
       [normalized]:json[1],
     }))
 
-  }
+  } 
 
 useEffect(() => {
   const normalized = search.trim().toLowerCase();
@@ -78,8 +81,14 @@ useEffect(() => {
               />
 
              <button
+              onClick={() => {
+                if (!search.trim()) return;
+                navigate("/search?q=" + search);
+                setShowSuggestions(false);
+              }}
               className='rounded-r-full bg-gray-200 px-2 py-2 border border-black '
               >search</button>
+
            </div>
            {showSuggestions && suggestions.length>0 &&(
            <div className='absolute bg-white px-2 py-2  w-[35rem] border border-gray-300 shadow-lg rounded-lg'>
@@ -89,7 +98,12 @@ useEffect(() => {
           
                   suggestions.map((s)=>
                   <li key={s} 
-                  onMouseDown={() => setSerach(s)}
+                  onMouseDown={() => {
+                    setSerach(s);
+                    navigate("/search?q=" + s);
+                    setShowSuggestions(false);
+                  }
+                  }
                   className='py-2 p-1 shadow-b-sm hover:bg-gray-100'>{s}</li>)
                 
                 } 
