@@ -1,16 +1,77 @@
-# React + Vite
+# 🎥 YouTube Clone – React Video Streaming App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A YouTube-inspired video streaming application built using **React**, implementing real-world frontend concepts such as API integration, state management, debounced search, caching, and live chat simulation.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
+🔗 https://your-site-name.netlify.app  
+*(Replace with your actual Netlify URL)*
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **React** (Vite)
+- **Redux Toolkit** – State management
+- **React Router DOM** – Client-side routing
+- **Tailwind CSS** – Styling
+- **YouTube Data API v3**
+- **Netlify** – Deployment
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ Features Implemented
+
+### ✅ Video Search
+- Real-time search suggestions
+- Debounced input to reduce API calls
+- Cached search results using Redux
+
+### ✅ Watch Page
+- Embedded YouTube video playback
+- Auto-play enabled (muted due to browser policies)
+- Dynamic video metadata (views, likes, publish time)
+
+### ✅ Comments
+- Fetches and displays video comments
+- Displays total comment count
+
+### ✅ Live Chat (Simulation)
+- Implemented using **API polling**
+- Periodically fetches and updates messages
+- Mimics real-time chat behavior
+
+### ✅ Suggested Videos
+- Displays related videos using title-based search
+- Handles YouTube API limitations gracefully
+- Seamless navigation between videos
+
+### ✅ Architecture
+- Reusable **custom hooks**
+- Clean component separation
+- Optimized rendering & state updates
+
+---
+
+## ❌ Features Not Implemented (Yet)
+- Mobile responsiveness
+- Nested comment threads
+- User authentication
+- Actual live streaming
+
+*(Listed intentionally for transparency)*
+
+---
+
+## 🧠 Key Learnings
+
+- Handling real-world API limitations
+- Optimizing frontend performance
+- Managing global state with Redux
+- Working with debouncing and polling
+- Building scalable React architecture
+
+---
+
+
