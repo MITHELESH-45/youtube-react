@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import menu from '../utils/images/hamburger_icon.svg.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleSideBar } from '../utils/store/appSlice';
 import { youtube_search_api } from '../utils/constants';
@@ -56,9 +55,9 @@ useEffect(() => {
         <div className='flex col-span-2  items-center'>
             <img
             onClick={handleSideBar}
-            className='h-9 cursor-pointer '
+            className='h-12 w-15 cursor-pointer '
              alt='menu'
-             src={menu}/>
+             src="https://imgs.search.brave.com/7obIyF_FyhFxov-pwcXKNuP-B_Lg9FV0xFx1cjZUnl8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/aWNvbnM4LmNvbS9z/Zi1ibGFjay8xMjAw/L21lbnUuanBn"/>
 
             <img 
             onClick={()=>navigate("/")}
