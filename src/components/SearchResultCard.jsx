@@ -5,7 +5,7 @@ const SearchResultCard = ({ info}) => {
   const { snippet,channelLogo,statistics } = info;
   const { title, thumbnails, channelTitle, description,publishedAt } = snippet;
   const time=timeAgo(publishedAt);
-  console.log(statistics);
+  
   const viewsOrginal=statistics?.viewCount;
 
   const views=viewsOrginal?formatViews(viewsOrginal):0;
