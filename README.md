@@ -5,8 +5,8 @@ A YouTube-inspired video streaming application built using **React**, implementi
 ---
 
 ## 🚀 Live Demo
-🔗 https://your-site-name.netlify.app  
-*(Replace with your actual Netlify URL)*
+🔗 https://youtube-react-sable.vercel.app/ 
+
 
 ---
 

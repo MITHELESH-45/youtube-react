@@ -12,7 +12,7 @@ const MovieCard = ({info}) => {
 
 
   return (
-    <div className='w-96 shadow-lg my-4 mx-4 p-2 h-82 '>
+    <div className='w-96 shadow-lg my-4 mx-4 p-2 h-85 '>
       <img  className="rounded-lg w-90 h-50"alt='thumbnail' src={thumbnails.medium.url}/>
       <ul className='mt-1'>
         <li className='font-bold'>{title}</li>
