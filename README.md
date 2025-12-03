@@ -60,7 +60,7 @@ A YouTube-inspired video streaming application built using **React**, implementi
 - User authentication
 - Actual live streaming
 
-*(Listed intentionally for transparency)*
+
 
 ---
 
