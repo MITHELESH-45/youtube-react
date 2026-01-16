@@ -4,58 +4,58 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
 
-  const isSidebarVisible=useSelector(store=>store.app.isSideBar);
+   const isSidebarVisible = useSelector(store => store.app.isSideBar);
 
-  if(!isSidebarVisible) return null;
-  return (
-    <div className='w-64  flex-shrink-0   shadow-lg m-2 p-2'>
-       
-       <ul className='p-2 -mt-5'>
-        <Link to="/"><li className='my-2'>Home</li></Link>
-        <li className='my-2'>Shorts</li>
-        <li>Subscriptions</li>
+   if (!isSidebarVisible) return null;
+   return (
+      <div className='fixed inset-y-0 left-0 bg-white z-40 md:static md:w-64 flex-shrink-0 shadow-lg m-0 md:m-2 p-2 h-full overflow-y-auto transform transition-transform duration-300 ease-in-out'>
 
-       </ul>
+         <ul className='p-2 -mt-5'>
+            <Link to="/"><li className='my-2'>Home</li></Link>
+            <li className='my-2'>Shorts</li>
+            <li>Subscriptions</li>
 
-       <hr className='mt-2'></hr>
+         </ul>
 
-       <h1 className='mt-2 font-bold text-lg'>You</h1>
+         <hr className='mt-2'></hr>
 
-       <ul className='p-2'>
-          <li className='mb-2'>History</li>
-          <li className='my-2'>Your Videos</li>
-          <li className='my-2'>Watch Later</li>
-          <li>Liked Videos</li>       
-       </ul>
+         <h1 className='mt-2 font-bold text-lg'>You</h1>
 
-       <hr className='my-2'></hr>
+         <ul className='p-2'>
+            <li className='mb-2'>History</li>
+            <li className='my-2'>Your Videos</li>
+            <li className='my-2'>Watch Later</li>
+            <li>Liked Videos</li>
+         </ul>
 
-       <h1 className='mt-2 font-bold text-lg'>Subscriptions</h1>
-       
-       <ul className='p-2'>
-          <li className=''>Akshay Saini</li>
-          <li className='my-2'>A2D</li>
-          <li className='my-2'>MrBeast</li>
-       </ul>
+         <hr className='my-2'></hr>
 
-       <hr></hr>
+         <h1 className='mt-2 font-bold text-lg'>Subscriptions</h1>
 
-       <h1 className='font-bold text-lg'>Explore    </h1>
+         <ul className='p-2'>
+            <li className=''>Akshay Saini</li>
+            <li className='my-2'>A2D</li>
+            <li className='my-2'>MrBeast</li>
+         </ul>
 
-       <ul className='p-2'>
-          <li className='my-2'>Music</li>
-          <li className='my-2'>Movies</li>
-          <li className='my-2'>Sports</li>
-       </ul>
+         <hr></hr>
 
-       <hr></hr>
+         <h1 className='font-bold text-lg'>Explore    </h1>
 
-       <ul className='p-2'>
-        <li className='my-2'>Settings</li>
-        <li className='my-2'>Help</li>
-       </ul>
-    </div>
-  )
+         <ul className='p-2'>
+            <li className='my-2'>Music</li>
+            <li className='my-2'>Movies</li>
+            <li className='my-2'>Sports</li>
+         </ul>
+
+         <hr></hr>
+
+         <ul className='p-2'>
+            <li className='my-2'>Settings</li>
+            <li className='my-2'>Help</li>
+         </ul>
+      </div>
+   )
 }
 
 export default Sidebar

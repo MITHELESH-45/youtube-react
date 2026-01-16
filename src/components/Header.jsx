@@ -41,46 +41,46 @@ const Header = () => {
   }, [search]);
 
   return (
-    <div className="p-4 grid grid-cols-12 shadow-lg">
+    <div className="p-4 flex justify-between items-center shadow-lg sticky top-0 bg-white z-50">
       {/* Left */}
-      <div className="flex col-span-2 items-center">
+      <div className="flex items-center">
         <img
           onClick={() => dispatch(toggleSideBar())}
-          className="h-10 cursor-pointer"
+          className="h-8 md:h-10 cursor-pointer"
           alt="menu"
           src="https://img.icons8.com/sf-black/1200/menu.jpg"
         />
 
         <img
           onClick={() => navigate("/")}
-          className="h-10 mx-3 cursor-pointer"
+          className="h-8 md:h-10 mx-2 md:mx-4 cursor-pointer"
           alt="logo"
           src="https://i.pinimg.com/originals/60/a6/b9/60a6b964ec3eba8df67900d13c892496.jpg"
         />
       </div>
 
       {/* Center */}
-      <div className="col-span-8 flex justify-center">
-        <div className="relative w-[35rem]">
+      <div className="flex-1 flex justify-center px-2 md:px-0">
+        <div className="relative w-full max-w-xl">
           <div className="flex">
             <input
-              className="border border-black p-2 w-full rounded-l-full"
+              className="border border-gray-400 p-2 w-full rounded-l-full focus:outline-none focus:border-blue-500"
               placeholder="Search"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               onFocus={() => setShowSuggestions(true)}
-              onBlur={()=>setShowSuggestions(false)}
+              onBlur={() => setShowSuggestions(false)}
             />
 
             <button
-              className="rounded-r-full bg-gray-200 px-4 border border-black"
+              className="rounded-r-full bg-gray-100 px-3 md:px-5 border border-l-0 border-gray-400 hover:bg-gray-200"
               onClick={() => {
                 if (!search.trim()) return;
                 navigate(`/search?q=${search}`);
                 setShowSuggestions(false);
               }}
             >
-              search
+              🔍
             </button>
           </div>
 
@@ -96,7 +96,7 @@ const Header = () => {
                       navigate(`/search?q=${s}`);
                       setShowSuggestions(false);
                     }}
-                    className="p-2 hover:bg-gray-100 cursor-pointer"
+                    className="p-2 hover:bg-gray-100 cursor-pointer text-sm md:text-base"
                   >
                     🔍 {s}
                   </li>
@@ -108,9 +108,9 @@ const Header = () => {
       </div>
 
       {/* Right */}
-      <div className="col-span-2 flex justify-end">
+      <div className="flex items-center">
         <img
-          className="h-10 rounded-full"
+          className="h-8 md:h-10 rounded-full cursor-pointer"
           alt="avatar"
           src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
         />

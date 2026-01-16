@@ -7,35 +7,35 @@ import { formatViews } from '../utils/helper'
 
 
 
-const CommentsContainer = ({videoId}) => {
+const CommentsContainer = ({ videoId }) => {
 
-  const [comments,setComments]=useState([])
-   
+  const [comments, setComments] = useState([])
+
   const getComments = async (videoId) => {
-    
+
     const res = await fetch(
-    `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&maxResults=20&key=${Youtube_API_KEY}`
-     );
-     const data = await res.json();
-     
+      `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&maxResults=20&key=${Youtube_API_KEY}`
+    );
+    const data = await res.json();
+
     setComments(data.items)
   }
-    
-   useEffect(() => {
+
+  useEffect(() => {
     getComments(videoId)
   }, [videoId])
-  
 
-  const videoInfo=useFetchVideoDetails(videoId);
+
+  const videoInfo = useFetchVideoDetails(videoId);
 
   const rawCommentCount = videoInfo?.statistics?.commentCount;
   const commCount = rawCommentCount ? formatViews(rawCommentCount) : 0;
-  
+
   return (
-    <div className='ml-5 w-265'>
-      <h1 className='font-bold text-2xl'  >{commCount} Comments</h1>
+    <div className='w-full mt-4 md:ml-0'>
+      <h1 className='font-bold text-2xl mb-4'>{commCount} Comments</h1>
       <div>
-         <CommentList comments={comments}/>
+        <CommentList comments={comments} />
       </div>
     </div>
   )
